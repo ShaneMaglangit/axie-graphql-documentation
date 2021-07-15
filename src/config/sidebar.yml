@@ -8,6 +8,8 @@
   items:
     - label: 'GetAxieBriefList'
       link: '/operations/getAxieBriefList'
+    - label: 'GetAxieDetail'
+      link: '/operations/getAxieDetail'
 - label: More
   items:
     - label: 'BetterAxie'

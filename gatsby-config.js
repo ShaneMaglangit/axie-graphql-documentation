@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    siteTitle: `Rocket Docs`,
-    defaultTitle: `Rocket Docs`,
-    siteTitleShort: `Rocket Docs`,
-    siteDescription: `Out of the box Gatsby Theme for creating documentation websites easily and quickly`,
-    siteUrl: `https://rocketdocs.netlify.app`,
-    siteAuthor: `@rocketseat`,
-    siteImage: `/banner.png`,
+    siteTitle: `Axie GraphQL Docs`,
+    defaultTitle: `Axie GraphQL Docs`,
+    siteTitleShort: `Axie GraphQL Docs`,
+    siteDescription: `API Documentation for the Axie Infinity GraphQL Endpoint`,
+    siteUrl: `https://axie-graphql.shanemaglangit.com`,
+    siteAuthor: `@shanemaglangit`,
+    siteImage: `/favicon.png`,
     siteLanguage: `en`,
     themeColor: `#8257E6`,
     basePath: `/`,
@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://rocketdocs.netlify.app`,
+        siteUrl: `https://axie-graphql.shanemaglangit.com`,
       },
     },
     `gatsby-plugin-offline`,

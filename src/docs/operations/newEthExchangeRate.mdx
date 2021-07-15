@@ -1,0 +1,34 @@
+---
+title: 'NewEthExchangeRate'
+description: Fetches the current USD value of Ether.
+---
+
+Fetches the current USD value of Ether.
+
+## Body
+You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+```json
+{
+    "operationName": "NewEthExchangeRate",
+    "query": "query NewEthExchangeRate {\n  exchangeRate {\n    eth {\n      usd\n      __typename\n    }\n    __typename\n  }\n}\n"
+}
+```
+<details>
+<summary>Full GraphQL Query Schema</summary>  
+<p>
+&nbsp;
+
+```graphql
+query NewEthExchangeRate {
+  exchangeRate {
+    eth {
+      usd
+      __typename
+    }
+    __typename
+  }
+}
+```
+
+</p>
+</details>

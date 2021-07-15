@@ -14,6 +14,12 @@
       link: '/operations/getAxieTransferHistory'
     - label: 'GetParentsBrief'
       link: '/operations/getParentsBrief'
+    - label: 'GetProfileBrief'
+      link: '/operations/getProfileBrief'
+    - label: 'GetProfileByRoninAddress'
+      link: '/operations/getProfileByRoninAddress'
+    - label: 'NewEthExchangeRate'
+      link: '/operations/newEthExchangeRate'
 - label: More
   items:
     - label: 'BetterAxie'

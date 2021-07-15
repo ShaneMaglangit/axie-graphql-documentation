@@ -33,6 +33,7 @@ module.exports = {
         icon: `static/favicon.png`,
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-canonical-urls`,

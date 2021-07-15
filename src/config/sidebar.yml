@@ -10,6 +10,8 @@
       link: '/operations/getAxieBriefList'
     - label: 'GetAxieDetail'
       link: '/operations/getAxieDetail'
+    - label: 'GetAxieTransferHistory'
+      link: '/operations/getAxieTransferHistory'
 - label: More
   items:
     - label: 'BetterAxie'

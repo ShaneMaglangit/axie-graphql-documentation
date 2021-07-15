@@ -12,6 +12,8 @@
       link: '/operations/getAxieDetail'
     - label: 'GetAxieTransferHistory'
       link: '/operations/getAxieTransferHistory'
+    - label: 'GetParentsBrief'
+      link: '/operations/getParentsBrief'
 - label: More
   items:
     - label: 'BetterAxie'

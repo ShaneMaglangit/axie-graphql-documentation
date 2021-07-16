@@ -1,22 +1,25 @@
 ---
-title: 'GetRecentlyBundlesSold'
+title: "GetRecentlyBundlesSold"
 description: Fetches a list of the recently sold bundles.
 ---
 
 Fetches a list of the recently sold bundles.
 
 ## Body
+
 You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+
 ```json
 {
-    "operationName": "GetRecentlyBundlesSold",
-    "variables": {
-        "from": 0,
-        "size": 10
-    },
-    "query": "query GetRecentlyBundlesSold($from: Int, $size: Int) {\n  settledAuctions {\n    bundles(from: $from, size: $size) {\n      total\n      results {\n        listingIndex\n        ...BundleDetail\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment BundleDetail on Bundle {\n  name\n  owner\n  auction {\n    ...AxieAuction\n    __typename\n  }\n  items {\n    ...LandBundleBrief\n    ...ItemBundleBrief\n    __typename\n  }\n  transferHistory {\n    ...TransferHistoryInSettledAuction\n    __typename\n  }\n  __typename\n}\n\nfragment LandBundleBrief on LandPlot {\n  landType\n  row\n  col\n  __typename\n}\n\nfragment ItemBundleBrief on LandItem {\n  landType\n  name\n  itemAlias\n  rarity\n  figureURL\n  tokenId\n  itemId\n  __typename\n}\n\nfragment AxieAuction on Auction {\n  startingPrice\n  endingPrice\n  startingTimestamp\n  endingTimestamp\n  duration\n  timeLeft\n  currentPrice\n  currentPriceUSD\n  suggestedPrice\n  seller\n  listingIndex\n  state\n  __typename\n}\n\nfragment TransferHistoryInSettledAuction on TransferRecords {\n  total\n  results {\n    ...TransferRecordInSettledAuction\n    __typename\n  }\n  __typename\n}\n\nfragment TransferRecordInSettledAuction on TransferRecord {\n  from\n  to\n  txHash\n  timestamp\n  withPrice\n  withPriceUsd\n  fromProfile {\n    name\n    __typename\n  }\n  toProfile {\n    name\n    __typename\n  }\n  __typename\n}\n"
+  "operationName": "GetRecentlyBundlesSold",
+  "variables": {
+    "from": 0,
+    "size": 10
+  },
+  "query": "query GetRecentlyBundlesSold($from: Int, $size: Int) {\n  settledAuctions {\n    bundles(from: $from, size: $size) {\n      total\n      results {\n        listingIndex\n        ...BundleDetail\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment BundleDetail on Bundle {\n  name\n  owner\n  auction {\n    ...AxieAuction\n    __typename\n  }\n  items {\n    ...LandBundleBrief\n    ...ItemBundleBrief\n    __typename\n  }\n  transferHistory {\n    ...TransferHistoryInSettledAuction\n    __typename\n  }\n  __typename\n}\n\nfragment LandBundleBrief on LandPlot {\n  landType\n  row\n  col\n  __typename\n}\n\nfragment ItemBundleBrief on LandItem {\n  landType\n  name\n  itemAlias\n  rarity\n  figureURL\n  tokenId\n  itemId\n  __typename\n}\n\nfragment AxieAuction on Auction {\n  startingPrice\n  endingPrice\n  startingTimestamp\n  endingTimestamp\n  duration\n  timeLeft\n  currentPrice\n  currentPriceUSD\n  suggestedPrice\n  seller\n  listingIndex\n  state\n  __typename\n}\n\nfragment TransferHistoryInSettledAuction on TransferRecords {\n  total\n  results {\n    ...TransferRecordInSettledAuction\n    __typename\n  }\n  __typename\n}\n\nfragment TransferRecordInSettledAuction on TransferRecord {\n  from\n  to\n  txHash\n  timestamp\n  withPrice\n  withPriceUsd\n  fromProfile {\n    name\n    __typename\n  }\n  toProfile {\n    name\n    __typename\n  }\n  __typename\n}\n"
 }
 ```
+
 <details>
 <summary>Full GraphQL Query Schema</summary> 
 <p>
@@ -123,19 +126,24 @@ fragment TransferRecordInSettledAuction on TransferRecord {
 </details>
 
 ## Variables
+
 Brief overview of the variable fields for this operation
 
-| Variable                    | Required | Data Type |
-| --------------------------- | -------- | --------- |
-| [from](#from)               | No       | Integer   |
-| [size](#size)               | No       | Integer   |
+| Variable      | Required | Data Type |
+| ------------- | -------- | --------- |
+| [from](#from) | No       | Integer   |
+| [size](#size) | No       | Integer   |
 
 Refer to the succeeding sections for more details about the variables and their valid values
 
 ### From
+
 Offset index of the results.
+
 > Any integer value. Signed or unsigned.
 
 ### Size
+
 Size of the result. The max size can vary based on the requesting source.
+
 > Any integer value. Signed or unsigned.

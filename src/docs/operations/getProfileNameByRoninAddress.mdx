@@ -1,21 +1,24 @@
 ---
-title: 'GetProfileNameByRoninAddress'
+title: "GetProfileNameByRoninAddress"
 description: Fetches the profile name by their Ronin address.
 ---
 
 Fetches the profile name by their Ronin address.
 
 ## Body
+
 You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+
 ```json
 {
-    "operationName": "GetProfileNameByRoninAddress",
-    "variables": {
-        "roninAddress": "0x2ebd51e17b56e9cea3317e8d13ab99ffb168427c"
-    },
-    "query": "query GetProfileNameByRoninAddress($roninAddress: String!) {\n  publicProfileWithRoninAddress(roninAddress: $roninAddress) {\n    accountId\n    name\n    __typename\n  }\n}\n"
+  "operationName": "GetProfileNameByRoninAddress",
+  "variables": {
+    "roninAddress": "0x2ebd51e17b56e9cea3317e8d13ab99ffb168427c"
+  },
+  "query": "query GetProfileNameByRoninAddress($roninAddress: String!) {\n  publicProfileWithRoninAddress(roninAddress: $roninAddress) {\n    accountId\n    name\n    __typename\n  }\n}\n"
 }
 ```
+
 <details>
 <summary>Full GraphQL Query Schema</summary>  
 <p>
@@ -35,6 +38,7 @@ query GetProfileNameByRoninAddress($roninAddress: String!) {
 </details>
 
 ## Variables
+
 Brief overview of the variable fields for this operation
 
 | Variable                       | Required | Data Type |
@@ -44,5 +48,7 @@ Brief overview of the variable fields for this operation
 Refer to the succeeding sections for more details about the variables and their valid values
 
 ### RoninAddress
+
 Ronin address of the user (hexadecimal).
+
 > **Example:** 0x2ebd51e17b56e9cea3317e8d13ab99ffb168427c

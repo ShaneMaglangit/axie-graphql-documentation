@@ -1,22 +1,25 @@
 ---
-title: 'GetLandDetail'
+title: "GetLandDetail"
 description: Fetches land details based on the provided coordinates.
 ---
 
 Fetches land details based on the provided coordinates.
 
 ## Body
+
 You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+
 ```json
 {
-    "operationName": "GetLandDetail",
-    "variables": {
-        "col": -97,
-        "row": -150
-    },
-    "query": "query GetLandDetail($col: Int!, $row: Int!) {\n  land(col: $col, row: $row) {\n    ...LandDetail\n    __typename\n  }\n}\n\nfragment LandDetail on LandPlot {\n  tokenId\n  owner\n  ownerProfile {\n    name\n    __typename\n  }\n  landType\n  row\n  col\n  auction {\n    ...AxieAuction\n    __typename\n  }\n  __typename\n}\n\nfragment AxieAuction on Auction {\n  startingPrice\n  endingPrice\n  startingTimestamp\n  endingTimestamp\n  duration\n  timeLeft\n  currentPrice\n  currentPriceUSD\n  suggestedPrice\n  seller\n  listingIndex\n  state\n  __typename\n}\n"
+  "operationName": "GetLandDetail",
+  "variables": {
+    "col": -97,
+    "row": -150
+  },
+  "query": "query GetLandDetail($col: Int!, $row: Int!) {\n  land(col: $col, row: $row) {\n    ...LandDetail\n    __typename\n  }\n}\n\nfragment LandDetail on LandPlot {\n  tokenId\n  owner\n  ownerProfile {\n    name\n    __typename\n  }\n  landType\n  row\n  col\n  auction {\n    ...AxieAuction\n    __typename\n  }\n  __typename\n}\n\nfragment AxieAuction on Auction {\n  startingPrice\n  endingPrice\n  startingTimestamp\n  endingTimestamp\n  duration\n  timeLeft\n  currentPrice\n  currentPriceUSD\n  suggestedPrice\n  seller\n  listingIndex\n  state\n  __typename\n}\n"
 }
 ```
+
 <details>
 <summary>Full GraphQL Query Schema</summary>  
 <p>
@@ -68,6 +71,7 @@ fragment AxieAuction on Auction {
 </details>
 
 ## Variables
+
 Brief overview of the variable fields for this operation
 
 | Variable    | Required | Data Type |
@@ -78,9 +82,13 @@ Brief overview of the variable fields for this operation
 Refer to the succeeding sections for more details about the variables and their valid values
 
 ### Row
+
 Row number of the land (Y-coord).
+
 > Any integer value. Signed or unsigned.
 
 ### Col
+
 Column number of the land (X-coord).
+
 > Any integer value. Signed or unsigned.

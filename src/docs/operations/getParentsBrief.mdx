@@ -1,22 +1,25 @@
 ---
-title: 'GetParentsBrief'
+title: "GetParentsBrief"
 description: Fetches details of two parent Axies.
 ---
 
 Fetches details of two parent Axies.
 
 ## Body
+
 You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+
 ```json
 {
-    "operationName": "GetParentsBrief",
-    "variables": {
-        "matronId": "1316795",
-        "sireId": "1316802"
-    },
-    "query": "query GetParentsBrief($matronId: ID!, $sireId: ID!) {\n  matron: axie(axieId: $matronId) {\n    ...AxieBrief\n    __typename\n  }\n  sire: axie(axieId: $sireId) {\n    ...AxieBrief\n    __typename\n  }\n}\n\nfragment AxieBrief on Axie {\n  id\n  name\n  stage\n  class\n  breedCount\n  image\n  title\n  battleInfo {\n    banned\n    __typename\n  }\n  auction {\n    currentPrice\n    currentPriceUSD\n    __typename\n  }\n  parts {\n    id\n    name\n    class\n    type\n    specialGenes\n    __typename\n  }\n  __typename\n}\n"
+  "operationName": "GetParentsBrief",
+  "variables": {
+    "matronId": "1316795",
+    "sireId": "1316802"
+  },
+  "query": "query GetParentsBrief($matronId: ID!, $sireId: ID!) {\n  matron: axie(axieId: $matronId) {\n    ...AxieBrief\n    __typename\n  }\n  sire: axie(axieId: $sireId) {\n    ...AxieBrief\n    __typename\n  }\n}\n\nfragment AxieBrief on Axie {\n  id\n  name\n  stage\n  class\n  breedCount\n  image\n  title\n  battleInfo {\n    banned\n    __typename\n  }\n  auction {\n    currentPrice\n    currentPriceUSD\n    __typename\n  }\n  parts {\n    id\n    name\n    class\n    type\n    specialGenes\n    __typename\n  }\n  __typename\n}\n"
 }
 ```
+
 <details>
 <summary>Full GraphQL Query Schema</summary>  
 <p>
@@ -67,6 +70,7 @@ fragment AxieBrief on Axie {
 </details>
 
 ## Variables
+
 Brief overview of the variable fields for this operation
 
 | Variable              | Required | Data Type |
@@ -77,9 +81,13 @@ Brief overview of the variable fields for this operation
 Refer to the succeeding sections for more details about the variables and their valid values
 
 ### MatronID
+
 ID of the Matron Axie.
+
 > Any valid ID of an existing Axie in the game.
 
 ### SireID
+
 ID of the Sire Axie.
+
 > Any valid ID of an existing Axie in the game.

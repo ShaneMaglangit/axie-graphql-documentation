@@ -1,66 +1,66 @@
 # Sidebar navigation
 
-- label: 'Introduction'
-  link: '/'
-- label: 'Getting started'
-  link: '/getting-started'
-- label: 'Operations'
+- label: "Introduction"
+  link: "/"
+- label: "Getting started"
+  link: "/getting-started"
+- label: "Operations"
   items:
-    - label: 'GetActivityLog'
-      link: '/operations/getActivityLog'
-    - label: 'GetAxieBriefList'
-      link: '/operations/getAxieBriefList'
-    - label: 'GetAxieDetail'
-      link: '/operations/getAxieDetail'
-    - label: 'GetAxieLatest'
-      link: '/operations/getAxieLatest'
-    - label: 'GetAxieName'
-      link: '/operations/getAxieName'
-    - label: 'GetAxieTransferHistory'
-      link: '/operations/getAxieTransferHistory' 
-    - label: 'GetBundleDetail'
-      link: '/operations/getBundleDetail' 
-    - label: 'GetBundleLatest'
-      link: '/operations/getBundleLatest' 
-    - label: 'GetBundleList'
-      link: '/operations/getBundleList' 
-    - label: 'GetItemsBriefList'
-      link: '/operations/getItemsBriefList' 
-    - label: 'GetItemDetail'
-      link: '/operations/getItemDetail' 
-    - label: 'GetItemTransferHistory'
-      link: '/operations/getItemTransferHistory' 
-    - label: 'GetLandDetail'
-      link: '/operations/getLandDetail'
-    - label: 'GetLandsGrid'
-      link: '/operations/getLandsGrid'
-    - label: 'GetLatestLands'
-      link: '/operations/getLatestLands'
-    - label: 'GetOverviewToday'
-      link: '/operations/getOverviewToday'
-    - label: 'GetParentsBrief'
-      link: '/operations/getParentsBrief'
-    - label: 'GetProfileBrief'
-      link: '/operations/getProfileBrief'
-    - label: 'GetProfileByRoninAddress'
-      link: '/operations/getProfileByRoninAddress'
-    - label: 'GetProfileNameByRoninAddress'
-      link: '/operations/getProfileNameByRoninAddress'
-    - label: 'GetRecentlyAxiesSold'
-      link: '/operations/getRecentlyAxiesSold'
-    - label: 'GetRecentlyBundlesSold'
-      link: '/operations/getRecentlyBundlesSold'
-    - label: 'GetRecentlyItemList'
-      link: '/operations/getRecentlyItemList'
-    - label: 'GetRecentlyItemsSold'
-      link: '/operations/getRecentlyItemsSold'
-    - label: 'GetRecentlyLandsSold'
-      link: '/operations/gGetRecentlyLandsSold'
-    - label: 'NewEthExchangeRate'
-      link: '/operations/newEthExchangeRate'
+    - label: "GetActivityLog"
+      link: "/operations/getActivityLog"
+    - label: "GetAxieBriefList"
+      link: "/operations/getAxieBriefList"
+    - label: "GetAxieDetail"
+      link: "/operations/getAxieDetail"
+    - label: "GetAxieLatest"
+      link: "/operations/getAxieLatest"
+    - label: "GetAxieName"
+      link: "/operations/getAxieName"
+    - label: "GetAxieTransferHistory"
+      link: "/operations/getAxieTransferHistory"
+    - label: "GetBundleDetail"
+      link: "/operations/getBundleDetail"
+    - label: "GetBundleLatest"
+      link: "/operations/getBundleLatest"
+    - label: "GetBundleList"
+      link: "/operations/getBundleList"
+    - label: "GetItemsBriefList"
+      link: "/operations/getItemsBriefList"
+    - label: "GetItemDetail"
+      link: "/operations/getItemDetail"
+    - label: "GetItemTransferHistory"
+      link: "/operations/getItemTransferHistory"
+    - label: "GetLandDetail"
+      link: "/operations/getLandDetail"
+    - label: "GetLandsGrid"
+      link: "/operations/getLandsGrid"
+    - label: "GetLatestLands"
+      link: "/operations/getLatestLands"
+    - label: "GetOverviewToday"
+      link: "/operations/getOverviewToday"
+    - label: "GetParentsBrief"
+      link: "/operations/getParentsBrief"
+    - label: "GetProfileBrief"
+      link: "/operations/getProfileBrief"
+    - label: "GetProfileByRoninAddress"
+      link: "/operations/getProfileByRoninAddress"
+    - label: "GetProfileNameByRoninAddress"
+      link: "/operations/getProfileNameByRoninAddress"
+    - label: "GetRecentlyAxiesSold"
+      link: "/operations/getRecentlyAxiesSold"
+    - label: "GetRecentlyBundlesSold"
+      link: "/operations/getRecentlyBundlesSold"
+    - label: "GetRecentlyItemList"
+      link: "/operations/getRecentlyItemList"
+    - label: "GetRecentlyItemsSold"
+      link: "/operations/getRecentlyItemsSold"
+    - label: "GetRecentlyLandsSold"
+      link: "/operations/gGetRecentlyLandsSold"
+    - label: "NewEthExchangeRate"
+      link: "/operations/newEthExchangeRate"
 - label: More
   items:
-    - label: 'BetterAxie'
+    - label: "BetterAxie"
       link: https://better-axie.web.app/
-    - label: 'Github'
+    - label: "Github"
       link: https://github.com/ShaneMaglangit/axie-graphql-documentation

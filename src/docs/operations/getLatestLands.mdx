@@ -1,23 +1,26 @@
 ---
-title: 'GetLatestLands'
+title: "GetLatestLands"
 description: Fetches a list of the latest land listing.
 ---
 
 Fetches a list of the latest land listing.
 
 ## Body
+
 You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+
 ```json
 {
-    "operationName": "GetLatestLands",
-    "variables": {
-        "from": 0,
-        "size": 10,
-        "sort": "Latest"
-    },
-    "query": "query GetLatestLands($from: Int!, $size: Int!, $sort: SortBy!) {\n  lands(from: $from, size: $size, sort: $sort) {\n    results {\n      ...LandBriefV2\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment LandBriefV2 on LandPlot {\n  tokenId\n  owner\n  landType\n  row\n  col\n  auction {\n    currentPrice\n    startingTimestamp\n    currentPriceUSD\n    __typename\n  }\n  ownerProfile {\n    name\n    __typename\n  }\n  __typename\n}\n"
+  "operationName": "GetLatestLands",
+  "variables": {
+    "from": 0,
+    "size": 10,
+    "sort": "Latest"
+  },
+  "query": "query GetLatestLands($from: Int!, $size: Int!, $sort: SortBy!) {\n  lands(from: $from, size: $size, sort: $sort) {\n    results {\n      ...LandBriefV2\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment LandBriefV2 on LandPlot {\n  tokenId\n  owner\n  landType\n  row\n  col\n  auction {\n    currentPrice\n    startingTimestamp\n    currentPriceUSD\n    __typename\n  }\n  ownerProfile {\n    name\n    __typename\n  }\n  __typename\n}\n"
 }
 ```
+
 <details>
 <summary>Full GraphQL Query Schema</summary> 
 <p>
@@ -58,24 +61,31 @@ fragment LandBriefV2 on LandPlot {
 </details>
 
 ## Variables
+
 Brief overview of the variable fields for this operation
 
-| Variable                    | Required | Data Type |
-| --------------------------- | -------- | --------- |
-| [from](#from)               | Yes      | Integer   |
-| [size](#size)               | Yes      | Integer   |
-| [sort](#sort)               | Yes      | String    |
+| Variable      | Required | Data Type |
+| ------------- | -------- | --------- |
+| [from](#from) | Yes      | Integer   |
+| [size](#size) | Yes      | Integer   |
+| [sort](#sort) | Yes      | String    |
 
 Refer to the succeeding sections for more details about the variables and their valid values
 
 ### From
+
 Offset index of the results.
+
 > Any integer value. Signed or unsigned. Default is 0.
 
 ### Size
+
 Size of the result. The max size can vary based on the requesting source.
+
 > Any integer value. Signed or unsigned. Default is 20.
 
 ### Sort
+
 Sorting option of the results
+
 > PriceAsc, PriceDesc, Latest

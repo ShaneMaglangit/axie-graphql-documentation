@@ -1,33 +1,50 @@
 ---
-title: 'GetLandsGrid'
+title: "GetLandsGrid"
 description: Fetches a list of the current lands.
 ---
 
 Fetches a list of the current lands.
 
 ## Body
+
 You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+
 ```json
 {
-    "operationName": "GetLandsGrid",
-    "variables": {
-        "from": 0,
-        "size": 24,
-        "sort": "PriceAsc",
-        "auctionType": "Sale",
-        "criteria": {}
-    },
-    "query": "query GetLandsGrid($from: Int!, $size: Int!, $sort: SortBy!, $owner: String, $criteria: LandSearchCriteria, $auctionType: AuctionType) {\n  lands(criteria: $criteria, from: $from, size: $size, sort: $sort, owner: $owner, auctionType: $auctionType) {\n    total\n    results {\n      ...LandBriefV2\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment LandBriefV2 on LandPlot {\n  tokenId\n  owner\n  landType\n  row\n  col\n  auction {\n    currentPrice\n    startingTimestamp\n    currentPriceUSD\n    __typename\n  }\n  ownerProfile {\n    name\n    __typename\n  }\n  __typename\n}\n"
+  "operationName": "GetLandsGrid",
+  "variables": {
+    "from": 0,
+    "size": 24,
+    "sort": "PriceAsc",
+    "auctionType": "Sale",
+    "criteria": {}
+  },
+  "query": "query GetLandsGrid($from: Int!, $size: Int!, $sort: SortBy!, $owner: String, $criteria: LandSearchCriteria, $auctionType: AuctionType) {\n  lands(criteria: $criteria, from: $from, size: $size, sort: $sort, owner: $owner, auctionType: $auctionType) {\n    total\n    results {\n      ...LandBriefV2\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment LandBriefV2 on LandPlot {\n  tokenId\n  owner\n  landType\n  row\n  col\n  auction {\n    currentPrice\n    startingTimestamp\n    currentPriceUSD\n    __typename\n  }\n  ownerProfile {\n    name\n    __typename\n  }\n  __typename\n}\n"
 }
 ```
+
 <details>
 <summary>Full GraphQL Query Schema</summary> 
 <p>
 &nbsp;
 
 ```graphql
-query GetLandsGrid($from: Int!, $size: Int!, $sort: SortBy!, $owner: String, $criteria: LandSearchCriteria, $auctionType: AuctionType) {
-  lands(criteria: $criteria, from: $from, size: $size, sort: $sort, owner: $owner, auctionType: $auctionType) {
+query GetLandsGrid(
+  $from: Int!
+  $size: Int!
+  $sort: SortBy!
+  $owner: String
+  $criteria: LandSearchCriteria
+  $auctionType: AuctionType
+) {
+  lands(
+    criteria: $criteria
+    from: $from
+    size: $size
+    sort: $sort
+    owner: $owner
+    auctionType: $auctionType
+  ) {
     total
     results {
       ...LandBriefV2
@@ -61,6 +78,7 @@ fragment LandBriefV2 on LandPlot {
 </details>
 
 ## Variables
+
 Brief overview of the variable fields for this operation
 
 | Variable                    | Required | Data Type |
@@ -75,26 +93,37 @@ Brief overview of the variable fields for this operation
 Refer to the succeeding sections for more details about the variables and their valid values
 
 ### From
+
 Offset index of the results.
+
 > Any integer value. Signed or unsigned. Default is 0.
 
 ### Size
+
 Size of the result. The max size can vary based on the requesting source.
+
 > Any integer value. Signed or unsigned. Default is 20.
 
 ### Sort
+
 Sorting option of the results
+
 > PriceAsc, PriceDesc, Latest
 
 ### AuctionType
+
 Marketplace state of the Axie
+
 > All, Sale
 
 ### Owner
+
 Ronin address of the owner
+
 > **Example:** 0x2ebd51e17b56e9cea3317e8d13ab99ffb168427c
 
 ## Criterias
+
 Brief overview of the fields you can include in the criteria variable
 
 | Variable              | Required | Data Type    |
@@ -102,5 +131,7 @@ Brief overview of the fields you can include in the criteria variable
 | [landType](#landtype) | No       | String Array |
 
 ### LandType
+
 Types of the lands
+
 > Genesis, Arctic, Savannah, Forest, Mystic

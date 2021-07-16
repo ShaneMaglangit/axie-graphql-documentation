@@ -1,19 +1,23 @@
 ---
-title: 'GetProfileBrief'
+title: "GetProfileBrief"
 description: Fetches the user information of the currently logged user.
 ---
 
 Fetches the user information of the currently logged user.
+
 > Requires sender to be authenticated
 
 ## Body
+
 You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+
 ```json
 {
-    "operationName": "GetProfileBrief",
-    "query": "query GetProfileBrief {\n  profile {\n    ...ProfileBrief\n    __typename\n  }\n}\n\nfragment ProfileBrief on AccountProfile {\n  accountId\n  addresses {\n    ...Addresses\n    __typename\n  }\n  email\n  activated\n  name\n  settings {\n    unsubscribeNotificationEmail\n    __typename\n  }\n  __typename\n}\n\nfragment Addresses on NetAddresses {\n  ethereum\n  tomo\n  loom\n  ronin\n  __typename\n}\n"
+  "operationName": "GetProfileBrief",
+  "query": "query GetProfileBrief {\n  profile {\n    ...ProfileBrief\n    __typename\n  }\n}\n\nfragment ProfileBrief on AccountProfile {\n  accountId\n  addresses {\n    ...Addresses\n    __typename\n  }\n  email\n  activated\n  name\n  settings {\n    unsubscribeNotificationEmail\n    __typename\n  }\n  __typename\n}\n\nfragment Addresses on NetAddresses {\n  ethereum\n  tomo\n  loom\n  ronin\n  __typename\n}\n"
 }
 ```
+
 <details>
 <summary>Full GraphQL Query Schema</summary>  
 <p>

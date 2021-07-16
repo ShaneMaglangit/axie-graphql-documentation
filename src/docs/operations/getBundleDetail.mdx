@@ -1,0 +1,133 @@
+---
+title: "GetAxieDetail"
+description: Fetches bundle details based on the provided ID.
+---
+
+Fetches bundle details based on the provided ID.
+
+## Body
+
+You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+
+```json
+{
+  "operationName": "GetBundleDetail",
+  "variables": {
+    "listingIndex": 910555
+  },
+  "query": "query GetBundleDetail($listingIndex: Int!) {\n  bundle(listingIndex: $listingIndex) {\n    ...BundleDetail\n    __typename\n  }\n}\n\nfragment BundleDetail on Bundle {\n  name\n  owner\n  auction {\n    ...AxieAuction\n    __typename\n  }\n  items {\n    ...LandBundleBrief\n    ...ItemBundleBrief\n    __typename\n  }\n  transferHistory {\n    ...TransferHistoryInSettledAuction\n    __typename\n  }\n  __typename\n}\n\nfragment LandBundleBrief on LandPlot {\n  landType\n  row\n  col\n  __typename\n}\n\nfragment ItemBundleBrief on LandItem {\n  landType\n  name\n  itemAlias\n  rarity\n  figureURL\n  tokenId\n  itemId\n  __typename\n}\n\nfragment AxieAuction on Auction {\n  startingPrice\n  endingPrice\n  startingTimestamp\n  endingTimestamp\n  duration\n  timeLeft\n  currentPrice\n  currentPriceUSD\n  suggestedPrice\n  seller\n  listingIndex\n  state\n  __typename\n}\n\nfragment TransferHistoryInSettledAuction on TransferRecords {\n  total\n  results {\n    ...TransferRecordInSettledAuction\n    __typename\n  }\n  __typename\n}\n\nfragment TransferRecordInSettledAuction on TransferRecord {\n  from\n  to\n  txHash\n  timestamp\n  withPrice\n  withPriceUsd\n  fromProfile {\n    name\n    __typename\n  }\n  toProfile {\n    name\n    __typename\n  }\n  __typename\n}\n"
+}
+```
+
+<details>
+<summary>Full GraphQL Query Schema</summary>  
+<p>
+&nbsp;
+
+```graphql
+query GetBundleDetail($listingIndex: Int!) {
+  bundle(listingIndex: $listingIndex) {
+    ...BundleDetail
+    __typename
+  }
+}
+
+fragment BundleDetail on Bundle {
+  name
+  owner
+  auction {
+    ...AxieAuction
+    __typename
+  }
+  items {
+    ...LandBundleBrief
+    ...ItemBundleBrief
+    __typename
+  }
+  transferHistory {
+    ...TransferHistoryInSettledAuction
+    __typename
+  }
+  __typename
+}
+
+fragment LandBundleBrief on LandPlot {
+  landType
+  row
+  col
+  __typename
+}
+
+fragment ItemBundleBrief on LandItem {
+  landType
+  name
+  itemAlias
+  rarity
+  figureURL
+  tokenId
+  itemId
+  __typename
+}
+
+fragment AxieAuction on Auction {
+  startingPrice
+  endingPrice
+  startingTimestamp
+  endingTimestamp
+  duration
+  timeLeft
+  currentPrice
+  currentPriceUSD
+  suggestedPrice
+  seller
+  listingIndex
+  state
+  __typename
+}
+
+fragment TransferHistoryInSettledAuction on TransferRecords {
+  total
+  results {
+    ...TransferRecordInSettledAuction
+    __typename
+  }
+  __typename
+}
+
+fragment TransferRecordInSettledAuction on TransferRecord {
+  from
+  to
+  txHash
+  timestamp
+  withPrice
+  withPriceUsd
+  fromProfile {
+    name
+    __typename
+  }
+  toProfile {
+    name
+    __typename
+  }
+  __typename
+}
+```
+
+</p>
+</details>
+
+## Variables
+
+Brief overview of the variable fields for this operation
+
+| Variable                      | Required | Data Type |
+| ----------------------------- | -------- | --------- |
+| [listingIndex](#listingindex) | Yes      | String    |
+
+Refer to the succeeding sections for more details about the variables and their valid values
+
+### ListingIndex
+
+Listing index of the bundle.
+
+> Any valid bundle listing index.

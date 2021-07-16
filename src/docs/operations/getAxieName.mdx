@@ -1,0 +1,52 @@
+---
+title: 'GetAxieName'
+description: Fetches the name of an Axie.
+---
+
+Fetches the name of an Axie.
+
+## Body
+You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+```json
+{
+    "operationName": "GetAxieName",
+    "variables": {
+        "axieId": "1857062"
+    },
+    "query": "query GetAxieName($axieId: ID!) {\n  axie(axieId: $axieId) {\n    ...AxieName\n    __typename\n  }\n}\n\nfragment AxieName on Axie {\n  name\n  __typename\n}\n"
+}
+```
+<details>
+<summary>Full GraphQL Query Schema</summary>  
+<p>
+&nbsp;
+
+```graphql
+query GetAxieName($axieId: ID!) {
+  axie(axieId: $axieId) {
+    ...AxieName
+    __typename
+  }
+}
+
+fragment AxieName on Axie {
+  name
+  __typename
+}
+```
+
+</p>
+</details>
+
+## Variables
+Brief overview of the variable fields for this operation
+
+| Variable          | Required | Data Type |
+| ----------------- | -------- | --------- |
+| [axieId](#axieid) | Yes      | String    |
+
+Refer to the succeeding sections for more details about the variables and their valid values
+
+### AxieID
+ID number of the given Axie.
+> Any valid ID of an existing Axie in the game.

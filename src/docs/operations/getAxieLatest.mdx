@@ -1,0 +1,224 @@
+---
+title: 'GetAxieLatest'
+description: Fetches a list of the latest Axie listing.
+---
+
+Fetches a list of the latest Axie listing.
+
+## Body
+You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+```json
+{
+    "operationName": "GetAxieLatest",
+    "variables": {
+        "from": 0,
+        "size": 10,
+        "sort": "PriceAsc",
+        "auctionType": "Sale",
+        "criteria": {}
+    },
+    "query": "query GetAxieLatest($auctionType: AuctionType, $criteria: AxieSearchCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {\n  axies(auctionType: $auctionType, criteria: $criteria, from: $from, sort: $sort, size: $size, owner: $owner) {\n    total\n    results {\n      ...AxieRowData\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment AxieRowData on Axie {\n  id\n  image\n  class\n  name\n  genes\n  owner\n  class\n  stage\n  title\n  breedCount\n  level\n  parts {\n    ...AxiePart\n    __typename\n  }\n  stats {\n    ...AxieStats\n    __typename\n  }\n  auction {\n    ...AxieAuction\n    __typename\n  }\n  __typename\n}\n\nfragment AxiePart on AxiePart {\n  id\n  name\n  class\n  type\n  specialGenes\n  stage\n  abilities {\n    ...AxieCardAbility\n    __typename\n  }\n  __typename\n}\n\nfragment AxieCardAbility on AxieCardAbility {\n  id\n  name\n  attack\n  defense\n  energy\n  description\n  backgroundUrl\n  effectIconUrl\n  __typename\n}\n\nfragment AxieStats on AxieStats {\n  hp\n  speed\n  skill\n  morale\n  __typename\n}\n\nfragment AxieAuction on Auction {\n  startingPrice\n  endingPrice\n  startingTimestamp\n  endingTimestamp\n  duration\n  timeLeft\n  currentPrice\n  currentPriceUSD\n  suggestedPrice\n  seller\n  listingIndex\n  state\n  __typename\n}\n"
+}
+```
+<details>
+<summary>Full GraphQL Query Schema</summary> 
+<p>
+&nbsp;
+
+```graphql
+query GetAxieLatest($auctionType: AuctionType, $criteria: AxieSearchCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {
+  axies(auctionType: $auctionType, criteria: $criteria, from: $from, sort: $sort, size: $size, owner: $owner) {
+    total
+    results {
+      ...AxieRowData
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment AxieRowData on Axie {
+  id
+  image
+  class
+  name
+  genes
+  owner
+  class
+  stage
+  title
+  breedCount
+  level
+  parts {
+    ...AxiePart
+    __typename
+  }
+  stats {
+    ...AxieStats
+    __typename
+  }
+  auction {
+    ...AxieAuction
+    __typename
+  }
+  __typename
+}
+
+fragment AxiePart on AxiePart {
+  id
+  name
+  class
+  type
+  specialGenes
+  stage
+  abilities {
+    ...AxieCardAbility
+    __typename
+  }
+  __typename
+}
+
+fragment AxieCardAbility on AxieCardAbility {
+  id
+  name
+  attack
+  defense
+  energy
+  description
+  backgroundUrl
+  effectIconUrl
+  __typename
+}
+
+fragment AxieStats on AxieStats {
+  hp
+  speed
+  skill
+  morale
+  __typename
+}
+
+fragment AxieAuction on Auction {
+  startingPrice
+  endingPrice
+  startingTimestamp
+  endingTimestamp
+  duration
+  timeLeft
+  currentPrice
+  currentPriceUSD
+  suggestedPrice
+  seller
+  listingIndex
+  state
+  __typename
+}
+```
+
+</p>
+</details>
+
+## Variables
+Brief overview of the variable fields for this operation
+
+| Variable                    | Required | Data Type |
+| --------------------------- | -------- | --------- |
+| [from](#from)               | No       | Integer   |
+| [size](#size)               | No       | Integer   |
+| [sort](#sort)               | No       | String    |
+| [auctionType](#auctiontype) | No       | String    |
+| [owner](#owner)             | No       | String    |
+| [criteria](#criteria)       | No       | Map       |
+
+Refer to the succeeding sections for more details about the variables and their valid values
+
+### From
+Offset index of the results.
+> Any integer value. Signed or unsigned. Default is 0.
+
+### Size
+Size of the result. The max size can vary based on the requesting source.
+> Any integer value. Signed or unsigned. Default is 20.
+
+### Sort
+Sorting option of the results
+> PriceAsc, PriceDesc, IdAsc, IdDesc, Latest
+
+### AuctionType
+Marketplace state of the Axie
+> All, Sale, NotForSale
+
+### Owner
+Ronin address of the owner
+> **Example:** 0x2ebd51e17b56e9cea3317e8d13ab99ffb168427c
+
+## Criterias
+Brief overview of the fields you can include in the criteria variable
+
+| Variable                   | Required | Data Type     |
+| -------------------------- | -------- | ------------- |
+| [region](#region)          | No       | -             |
+| [parts](#parts)            | No       | String Array  |
+| [bodyShapes](#bodyshapes)  | No       | -             |
+| [classes](#classes)        | No       | String Array  |
+| [stages](#stages)          | No       | Integer Array |
+| [numMystic](#numMystic)    | No       | Integer Array |
+| [pureness](#pureness)      | No       | Integer Array |
+| [title](#title)            | No       | -             |
+| [breedable](#breedable)    | No       | Boolean       |
+| [breedCount](#breed-count) | No       | Integer Array |
+| [hp](#hp)                  | No       | Integer Array |
+| [skill](#skill)            | No       | Integer Array |
+| [speed](#speed)            | No       | Integer Array |
+| [morale](#morale)          | No       | Integer Array |
+
+### Region
+
+### Parts
+Array of the Axie Parts
+> **Format:** &lt;part&gt;-&lt;partName&gt;  
+> **Example:** ["tail-yam", "horn-rose-bud"]
+
+### BodyShapes
+
+### Classes
+Array of Axie classes
+> Beast, Aquatic, Plant, Bird, Bug, Reptile, Mech, Dawn, Dusk
+
+### Stages
+Maturity of the Axie. Currently, only 1 (Egg) and 4 (Adult) will give results.
+> 1 or 4
+
+### NumMystic
+Array of Counts of Mystic Parts. Do note that this is an array so you can pass multiple mystic count vales.
+> 1 to 6
+
+### Pureness
+Array of Purity of the Axies. Do note that this is an array so you can pass multiple purity values.
+> 1 to 6
+
+### Title
+
+### Breedable
+Flag if an Axie is breedable or not. This does not work as expected so its best to ommit this on your queries.
+> true or false
+
+### Breed Count
+Number of times an Axie has been used to breed
+> 0 to 7
+
+### HP 
+HP stats of the Axie. Set the first element to the minimum value and the second to the maximum value.
+> [&lt;min&gt;, &lt;max&gt;]
+
+### Skill
+Skill stats of the Axie. Set the first element to the minimum value and the second to the maximum value.
+> [&lt;min&gt;, &lt;max&gt;]
+
+### Speed
+Speed stats of the Axie. Set the first element to the minimum value and the second to the maximum value.
+> [&lt;min&gt;, &lt;max&gt;]
+
+### Morale
+Morale stats of the Axie. Set the first element to the minimum value and the second to the maximum value.
+> [&lt;min&gt;, &lt;max&gt;]

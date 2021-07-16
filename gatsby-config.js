@@ -40,6 +40,6 @@ module.exports = {
         siteUrl: `https://axie-graphql.shanemaglangit.com`,
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
   ],
 };

@@ -1,0 +1,85 @@
+---
+title: 'GetBundleLatest'
+description: Fetches a list of the latest bundle listings.
+---
+
+Fetches a list of the latest bundle listings.
+
+## Body
+You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+```json
+{
+    "operationName": "GetBundleLatest",
+    "variables": {
+        "from": 0,
+        "size": 10,
+        "sort": "Latest"
+    },
+    "query": "query GetBundleLatest($from: Int!, $size: Int!, $sort: SortBy) {\n  bundles(from: $from, size: $size, sort: $sort) {\n    total\n    results {\n      name\n      listingIndex\n      auction {\n        currentPrice\n        currentPriceUSD\n        currentPrice\n        startingTimestamp\n        __typename\n      }\n      items {\n        ... on LandItem {\n          realTokenId\n          figureURL\n          rarity\n          __typename\n        }\n        ... on LandPlot {\n          realTokenId\n          landType\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n"
+}
+```
+<details>
+<summary>Full GraphQL Query Schema</summary> 
+<p>
+&nbsp;
+
+```graphql
+query GetBundleLatest($from: Int!, $size: Int!, $sort: SortBy) {
+  bundles(from: $from, size: $size, sort: $sort) {
+    total
+    results {
+      name
+      listingIndex
+      auction {
+        currentPrice
+        currentPriceUSD
+        currentPrice
+        startingTimestamp
+        __typename
+      }
+      items {
+        ... on LandItem {
+          realTokenId
+          figureURL
+          rarity
+          __typename
+        }
+        ... on LandPlot {
+          realTokenId
+          landType
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+```
+
+</p>
+</details>
+
+## Variables
+Brief overview of the variable fields for this operation
+
+| Variable                    | Required | Data Type |
+| --------------------------- | -------- | --------- |
+| [from](#from)               | No       | Integer   |
+| [size](#size)               | No       | Integer   |
+| [sort](#sort)               | No       | String    |
+
+Refer to the succeeding sections for more details about the variables and their valid values
+
+### From
+Offset index of the results.
+> Any integer value. Signed or unsigned.
+
+### Size
+Size of the result. The max size can vary based on the requesting source.
+> Any integer value. Signed or unsigned.
+
+### Sort
+Sorting option of the results
+> PriceAsc, PriceDesc, IdAsc, IdDesc, Latest

@@ -1,0 +1,164 @@
+---
+title: "GetItemsBriefList"
+description: Fetches a list of existing items based on given criterias.
+---
+
+Fetches a list of existing items based on given criterias.
+
+## Body
+
+You can modify the query string to include fields that you want to be included or not. Refer to the GraphQL Schema below for a full overview.
+
+```json
+{
+  "operationName": "GetItemBriefList",
+  "variables": {
+    "from": 0,
+    "size": 24,
+    "sort": "PriceAsc",
+    "owner": null,
+    "auctionType": "Sale",
+    "criteria": {
+      "landType": ["Savannah"],
+      "rarity": ["Common"],
+      "itemAlias": ["s11b", "p5"]
+    }
+  },
+  "query": "query GetItemBriefList($from: Int, $size: Int, $sort: SortBy, $auctionType: AuctionType, $owner: String, $criteria: ItemSearchCriteria) {\n  items(from: $from, size: $size, sort: $sort, auctionType: $auctionType, owner: $owner, criteria: $criteria) {\n    total\n    results {\n      ...ItemBrief\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment ItemBrief on LandItem {\n  itemId\n  tokenType\n  tokenId\n  itemId\n  landType\n  name\n  itemAlias\n  rarity\n  figureURL\n  auction {\n    ...AxieAuction\n    __typename\n  }\n  __typename\n}\n\nfragment AxieAuction on Auction {\n  startingPrice\n  endingPrice\n  startingTimestamp\n  endingTimestamp\n  duration\n  timeLeft\n  currentPrice\n  currentPriceUSD\n  suggestedPrice\n  seller\n  listingIndex\n  state\n  __typename\n}\n"
+}
+```
+
+<details>
+<summary>Full GraphQL Query Schema</summary> 
+<p>
+&nbsp;
+
+```graphql
+query GetItemBriefList(
+  $from: Int
+  $size: Int
+  $sort: SortBy
+  $auctionType: AuctionType
+  $owner: String
+  $criteria: ItemSearchCriteria
+) {
+  items(
+    from: $from
+    size: $size
+    sort: $sort
+    auctionType: $auctionType
+    owner: $owner
+    criteria: $criteria
+  ) {
+    total
+    results {
+      ...ItemBrief
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment ItemBrief on LandItem {
+  itemId
+  tokenType
+  tokenId
+  itemId
+  landType
+  name
+  itemAlias
+  rarity
+  figureURL
+  auction {
+    ...AxieAuction
+    __typename
+  }
+  __typename
+}
+
+fragment AxieAuction on Auction {
+  startingPrice
+  endingPrice
+  startingTimestamp
+  endingTimestamp
+  duration
+  timeLeft
+  currentPrice
+  currentPriceUSD
+  suggestedPrice
+  seller
+  listingIndex
+  state
+  __typename
+}
+```
+
+</p>
+</details>
+
+## Variables
+
+Brief overview of the variable fields for this operation
+
+| Variable                    | Required | Data Type |
+| --------------------------- | -------- | --------- |
+| [from](#from)               | No       | Integer   |
+| [size](#size)               | No       | Integer   |
+| [sort](#sort)               | No       | String    |
+| [auctionType](#auctiontype) | No       | String    |
+| [owner](#owner)             | No       | String    |
+| [criteria](#criteria)       | No       | Map       |
+
+Refer to the succeeding sections for more details about the variables and their valid values
+
+### From
+
+Offset index of the results.
+
+> Any integer value. Signed or unsigned.
+
+### Size
+
+Size of the result. The max size can vary based on the requesting source.
+
+> Any integer value. Signed or unsigned.
+
+### Sort
+
+Sorting option of the results
+
+> PriceAsc, PriceDesc, IdAsc, IdDesc, Latest
+
+### AuctionType
+
+Marketplace state of the Axie
+
+> All, Sale, NotForSale
+
+### Owner
+
+Ronin address of the owner
+
+> **Example:** 0x2ebd51e17b56e9cea3317e8d13ab99ffb168427c
+
+## Criterias
+
+Brief overview of the fields you can include in the criteria variable
+
+| Variable                | Required | Data Type    |
+| ----------------------- | -------- | ------------ |
+| [landType](#landtype)   | No       | String Array |
+| [rarity](#rarity)       | No       | String Array |
+| [itemAlias](#itemalias) | No       | String Array |
+
+### LandType
+Types of the lands.
+> Genesis, Arctic, Savannah, Forest, Mystic
+
+### Rarity
+Rarity of the items.
+> Common, Epic, Mystic, Rare
+
+### ItemAlias
+Alias of the Items.
+> p5, s11b, m9, f4c, a4b, a18a, f6b, s20a, a8b, f10b, a9b, f8b, f8a, s14c, s14b, f8c, s8b, s14a, m10, s9c, s19b, s6b, m12, f11a, s17c, s18c, s17b, f3b, f7a, s20b, s9a, a4a, a2c, s7a, s7c, f4a, m8, s2b, s2a, s15a, s13b, m14, s13a, s9b, p1, a13b, f13c, f15b, s5c, f16c, s5a, s5b, s18b, s18a, s1c, s7b, f2c, f2b, f2a, a14c, f12c, a14b, a17b, a14a, s19c, p2, f1c, f16b, a16b, s4c, f7c, f17b, f18c, f15c, a7b, f5a, f6a, f12a, f13b, s8c, a9a, a20a, a20c, a20b, a10b, f9c, a10a, s16b, a12b, a10c, s3b, s12b, s16a, f5b, f13a, f20c, m15a, s16c, a16c, s2c, p4, f19c, a6a, a8c, a18c, a9c, a3c, f17a, s3a, p3c, a5b, p3b, a7a, f20b, f1b, f10a, a17a, a13a, a12a, a19a, f10c, f15a, a2a, a15b, a2b, s15b, f18a, f5c, a5c, a1b, a5a, f11c, f12b, s1b, s10a, s12a, s1a, s10c, a3b, s11c, a18b, f19a, s13c, a6b, a6c, m15b, a1c, a7c, a12c, s15c, f11b, f1a, s3c, m3, m2, m5, m1, f20a, m7, m6, m4, f14a, s8a, f6c, a15a, a3a, s20c, f16a, f14c, s6a, f9a, f17c, a11c, s10b, m11, f18b, s4b, f19b, s6c, a17c, a15c, s12c, f3c, a16a, s11a, m13, f7b, f3a, a19b, s4a, f4b, a11a, a11b, a1a, s19a, a19c, a13c, a4c, f14b, f9b, s17a, a8a, p3a

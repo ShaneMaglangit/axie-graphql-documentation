@@ -55,7 +55,7 @@
     - label: "GetRecentlyItemsSold"
       link: "/operations/getRecentlyItemsSold"
     - label: "GetRecentlyLandsSold"
-      link: "/operations/gGetRecentlyLandsSold"
+      link: "/operations/getRecentlyLandsSold"
     - label: "NewEthExchangeRate"
       link: "/operations/newEthExchangeRate"
 - label: More

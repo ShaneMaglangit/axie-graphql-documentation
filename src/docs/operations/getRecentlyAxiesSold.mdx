@@ -14,9 +14,7 @@ You can modify the query string to include fields that you want to be included o
   "operationName": "GetRecentlyAxiesSold",
   "variables": {
     "from": 0,
-    "size": 10,
-    "sort": "Latest",
-    "auctionType": "Sale"
+    "size": 10
   },
   "query": "query GetRecentlyAxiesSold($from: Int, $size: Int) {\n  settledAuctions {\n    axies(from: $from, size: $size) {\n      total\n      results {\n        ...AxieSettledBrief\n        transferHistory {\n          ...TransferHistoryInSettledAuction\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment AxieSettledBrief on Axie {\n  id\n  name\n  image\n  class\n  breedCount\n  __typename\n}\n\nfragment TransferHistoryInSettledAuction on TransferRecords {\n  total\n  results {\n    ...TransferRecordInSettledAuction\n    __typename\n  }\n  __typename\n}\n\nfragment TransferRecordInSettledAuction on TransferRecord {\n  from\n  to\n  txHash\n  timestamp\n  withPrice\n  withPriceUsd\n  fromProfile {\n    name\n    __typename\n  }\n  toProfile {\n    name\n    __typename\n  }\n  __typename\n}\n"
 }
@@ -94,8 +92,6 @@ Brief overview of the variable fields for this operation
 | --------------------------- | -------- | --------- |
 | [from](#from)               | No       | Integer   |
 | [size](#size)               | No       | Integer   |
-| [sort](#sort)               | No       | String    |
-| [auctionType](#auctiontype) | No       | String    |
 
 Refer to the succeeding sections for more details about the variables and their valid values
 
@@ -110,15 +106,3 @@ Offset index of the results.
 Size of the result. The max size can vary based on the requesting source.
 
 > Any integer value. Signed or unsigned. Default is 20.
-
-### Sort
-
-Sorting option of the results
-
-> PriceAsc, PriceDesc, IdAsc, IdDesc, Latest
-
-### AuctionType
-
-Marketplace state of the Axie
-
-> All, Sale, NotForSale

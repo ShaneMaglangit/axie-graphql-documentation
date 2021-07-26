@@ -61,6 +61,8 @@
 - label: More
   items:
     - label: "BetterAxie"
-      link: https://better-axie.web.app/
+      link: https://betteraxie.tech
+    - label: "Gene Parsing Library (Go)"
+      link: https://github.com/ShaneMaglangit/agp
     - label: "Github"
       link: https://github.com/ShaneMaglangit/axie-graphql-documentation

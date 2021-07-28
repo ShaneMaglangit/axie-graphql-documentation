@@ -64,5 +64,7 @@
       link: https://betteraxie.tech
     - label: "Gene Parsing Library (Go)"
       link: https://github.com/ShaneMaglangit/agp
+    - label: "Gene PArsing Library (NPM)"
+      link: https://github.com/ShaneMaglangit/agp-npm
     - label: "Github"
       link: https://github.com/ShaneMaglangit/axie-graphql-documentation

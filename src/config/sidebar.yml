@@ -66,5 +66,7 @@
       link: https://github.com/ShaneMaglangit/agp
     - label: "Gene Parsing Library (NPM)"
       link: https://github.com/ShaneMaglangit/agp-npm
+    - label: "RPC API Example"
+      link: https://github.com/ShaneMaglangit/morph-tracking-api
     - label: "Github"
       link: https://github.com/ShaneMaglangit/axie-graphql-documentation
